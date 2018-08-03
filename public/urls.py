@@ -6,5 +6,5 @@ from django.conf.urls import url
 from public import views
 
 urlpatterns = [
-    url(r'^$', view=views.index),
+    url(r'^$', view=views.publicIndex),
 ]
