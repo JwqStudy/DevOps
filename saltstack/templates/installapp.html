@@ -2,14 +2,19 @@
 {% load static %}
 
 {% block header %}
-<script type="text/javascript" src="{% static 'scripts/installapp.js' %}"></script>
+<script type="text/javascript" src="{% static '/scripts/installapp.js' %}"></script>
 <link rel="stylesheet" type="text/css" href="{% static 'css/installapp.css' %}">
 {% endblock header %}
 
+
 {% block contentHeader %}
-    <h1>安装软件</h1>
+    <h1>安装系统软件</h1>
 {% endblock contentHeader %}
 
+
 {% block mainContent %}
-    <h1>hello</h1>
+<select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索" data-actions-box="true" id="applist">
+{#    <option value="0" selected>请选择应用</option>#}
+</select>
 {% endblock mainContent %}
+
