@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <script type="text/javascript" src="{% static '/scripts/init.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/init.css' %}">
+{% endblock header %}
+
+
+{% block contentHeader %}
+    <h1>系统初始化</h1>
+{% endblock contentHeader %}
+
+
+{% block mainContent %}
+    <form class="form-horizontal" style="margin: 50px">
+        <div class="form-group">
+            <h3>IP列表</h3>
+            <textarea class="form-control" rows="10" placeholder="多个ip使用,分隔符"></textarea>
+        </div>
+
+        <div class="form-group">
+            <h3>选择需要初始化的项目</h3>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox1" value="1"> 秘钥
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox2" value="2"> minionId
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox3" value="3"> 同步时间
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox4" value="4"> 配置yum源
+            </label>
+             <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox5" value="5"> 安装snmp
+            </label>
+            <label class="checkbox-inline">
+                <input type="checkbox" id="inlineCheckbox6" value="6"> 配置DNS
+            </label>
+        </div>
+        <button class="btn btn-primary">开始</button>
+    </form>
+{% endblock mainContent %}
