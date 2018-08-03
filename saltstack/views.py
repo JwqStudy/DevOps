@@ -8,11 +8,20 @@ from saltstack.models import AppList
 def index(request):
     return HttpResponse('Saltstack')
 
+
 def installApp(request):
     return render(request, 'installapp.html')
 
-def applist(request):
+
+def result(code, msg, data):
     resultBean = dict()
+    resultBean['code'] = code
+    resultBean['msg'] = msg
+    resultBean['data'] = data
+    return resultBean
+
+
+def applist(request):
     appList = AppList.objects.all()
     if applist:
         try:
@@ -23,18 +32,12 @@ def applist(request):
                 each['priority'] = item.priority
                 each['appname'] = item.appname
                 appAll.append(each)
-            resultBean['code'] = 200
-            resultBean['msg'] = 'success'
-            resultBean['data'] = appAll
+            return JsonResponse(result(200, 'success', appAll))
         except Exception as e:
-            resultBean['code'] = 400
-            resultBean['msg'] = 'error'
-            resultBean['data'] = e
-        return JsonResponse(resultBean)
+            return JsonResponse(result(400, 'error', e))
     else:
-        resultBean['code'] = 400
-        resultBean['msg'] = 'error'
-        resultBean['data'] = None
+        return JsonResponse(result(400, 'error', None))
+
 
 def init(request):
     if request.method == 'GET':
