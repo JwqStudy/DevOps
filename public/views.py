@@ -14,3 +14,6 @@ def index(request):
 
 def opsIndex(request):
     return render(request, 'index.html')
+
+def publicIndex(request):
+    return render(request, 'public.html')
