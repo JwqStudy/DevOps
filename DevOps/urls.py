@@ -24,7 +24,8 @@ urlpatterns = [
     path('saltstack/', include('saltstack.urls')),
     path('blog/', include('blog.urls')),
     path('public/', include('public.urls')),
-    path('login/', view=views.login),
-    path('signup/', view=views.signup),
-    url('^$', view=views.opsIndex),
+    url(r'login/$', view=views.cms_login, name='cms_login'),
+    url(r'signup/$', view=views.cms_signup, name='cms_signup'),
+    url(r'logout/$', view=views.cms_logout, name='cms_logout'),
+    url('^$', view=views.opsIndex, name='devindex'),
 ]

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+{#<script type="text/javascript" src="{% static '/scripts/iplist.js' %}"></script>#}
+{% endblock header %}
+
+
+{% block contentHeader %}
+    <h1>应用实例</h1>
+{% endblock contentHeader %}
+
+
+{% block mainContent %}
+    <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索" data-actions-box="true">
+        {% for i in ip_list %}
+            <option>{{ i.ipnum }}</option>
+        {% endfor %}
+    </select>
+{% endblock mainContent %}
