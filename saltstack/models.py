@@ -8,4 +8,4 @@ class AppList(models.Model):
 
 
 class IpList(models.Model):
-    ipnum = models.GenericIPAddressField(max_length=15, protocol='ipv4', unique=True)  #字符串类型（ip4和ip6是可选的），只在admin上有用
+    ipnum = models.GenericIPAddressField(protocol='ipv4', unique=True)  #字符串类型（ip4和ip6是可选的），只在admin上有用

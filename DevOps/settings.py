@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'DevOps',
         'USER': 'devops',
         'PASSWORD': 'devops',
-        'HOST': '172.16.94.85',
+        'HOST': '192.168.137.130',
         'PORT': '3306',
     }
 }
@@ -111,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
