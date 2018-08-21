@@ -14,7 +14,7 @@ function submitEmail() {
         // async: false,
         success: function (callback) {
             if (callback.msg == 'success') {
-                result = callback.data
+                // result = callback.data
                 alert("send eamil success!")
             }
         }

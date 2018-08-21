@@ -2,16 +2,25 @@
 {% load static %}
 
 {% block header %}
+<link rel="stylesheet" type="text/css" href="{% static 'simditor-2.3.19/styles/simditor.css' %}" />
 
+<link rel="stylesheet" type="text/css" href="{% static '/css/blog.css' %}" />
+<script type="text/javascript" src="{% static '/js/blog.js' %}"></script>
+
+<script type="text/javascript" src="{% static 'simditor-2.3.19/site/assets/scripts/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'simditor-2.3.19/site/assets/scripts/module.js' %}"></script>
+<script type="text/javascript" src="{% static 'simditor-2.3.19/site/assets/scripts/hotkeys.js' %}"></script>
+<script type="text/javascript" src="{% static 'simditor-2.3.19/site/assets/scripts/uploader.js' %}"></script>
+<script type="text/javascript" src="{% static 'simditor-2.3.19/site/assets/scripts/simditor.js' %}"></script>
 {% endblock header %}
 
 
 {% block contentHeader %}
-    <h1>Blog</h1>
+    <h1>文章内容：</h1>
 {% endblock contentHeader %}
 
 
 {% block mainContent %}
-    <h1>This is your blog!</h1>
+    <textarea id="editor" placeholder="Balabala" autofocus></textarea>
 {% endblock mainContent %}
 
