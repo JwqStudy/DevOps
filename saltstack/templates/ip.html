@@ -12,7 +12,8 @@
 
 
 {% block mainContent %}
-    <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索" data-actions-box="true">
+    <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+            data-actions-box="true">
         {% for i in ip_list %}
             <option>{{ i.ipnum }}</option>
         {% endfor %}

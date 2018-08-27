@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<script type="text/javascript" src="{% static '/scripts/dailycheck.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'css/dailycheck.css' %}">
+{% endblock header %}
+
+
+{% block contentHeader %}
+    <h1>日常巡检</h1>
+{% endblock contentHeader %}
+
+
+{% block mainContent %}
+    <form method="POST">
+        <textarea name="checkoutput" class="form-control" rows="18" disabled>
+            {{ data }}
+        </textarea><br/>
+        <button name="server" value="1" class="btn btn-primary">服务检查</button>
+        <button name="db" value="2" class="btn btn-primary">备份检查</button>
+    </form>
+{% endblock mainContent %}
+

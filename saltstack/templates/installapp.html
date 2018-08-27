@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block header %}
-<script type="text/javascript" src="{% static '/scripts/installapp.js' %}"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'css/installapp.css' %}">
+    <script type="text/javascript" src="{% static '/scripts/installapp.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/installapp.css' %}">
 {% endblock header %}
 
 
@@ -13,8 +13,24 @@
 
 
 {% block mainContent %}
-<select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索" data-actions-box="true" id="applist">
-{#    <option value="0" selected>请选择应用</option>#}
-</select>
+    <p>
+        <h5>选择要安装软件的主机IP</h5>
+        <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+                data-actions-box="true">
+            {% for i in ip_list %}
+                <option>{{ i.ipnum }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <h5>选择要安装的软件</h5>
+        <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+                data-actions-box="true">
+            {% for i in app_list %}
+                <option>{{ i.appname }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <button class="btn btn-primary" >开始安装</button>
 {% endblock mainContent %}
 

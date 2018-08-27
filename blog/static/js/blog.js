@@ -6,7 +6,7 @@ function book() {
     Simditor.locale = 'zh-CN';//设置中文
     var editor = new Simditor({
         textarea: $('#editor'),  //textarea的id
-        placeholder: '这里输入文字...',
+        placeholder: '',
         toolbar: ['title', 'bold', 'italic', 'underline', 'strikethrough', 'fontScale', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent', 'alignment'], //工具条都包含哪些内容
         pasteImage: true,//允许粘贴图片
         defaultImage: '/res/simditor/images/image.png',//编辑器插入的默认图片，此处可以删除

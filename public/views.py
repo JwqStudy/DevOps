@@ -1,6 +1,6 @@
 import yagmail as yagmail
 from django.contrib.auth import logout, authenticate, login
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -8,8 +8,9 @@ from django.urls import reverse
 
 
 def cms_login(request):
+    error_msg = ''
     if request.method == 'GET':
-        return render(request, 'login.html')
+        return render(request, 'login.html', {'error': error_msg})
     else:
         print(request.POST, '-' * 10)
         username = request.POST.get('username', None)
@@ -43,7 +44,8 @@ def cms_login(request):
             else:
                 return redirect(reverse('devindex'))
         else:
-            return render(request, 'login.html', {'error': u'用户名或密码错误'})
+            error_msg = '用户名或密码错误'
+            return render(request, 'login.html', {'error': error_msg})
 
 
 def cms_signup(request):
@@ -65,6 +67,7 @@ def opsIndex(request):
 
 def publicIndex(request):
     return render(request, 'public.html')
+    # return HttpResponseNotFound('<h1>not found</h1>')
 
 
 def setting(request):

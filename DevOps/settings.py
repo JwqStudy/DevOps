@@ -83,7 +83,7 @@ DATABASES = {
         'NAME': 'DevOps',
         'USER': 'devops',
         'PASSWORD': 'devops',
-        'HOST': '172.16.94.85',
+        'HOST': '192.168.137.130',
         'PORT': '3306',
     }
 }
@@ -126,3 +126,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+

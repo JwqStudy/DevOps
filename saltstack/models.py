@@ -4,7 +4,7 @@ from django.db import models
 
 class AppList(models.Model):
     priority = models.IntegerField()
-    appname = models.CharField(max_length=50, unique=True)
+    appname = models.CharField(max_length=50, unique=True)#unique设置不可重复
 
 
 class IpList(models.Model):

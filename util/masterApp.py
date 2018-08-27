@@ -8,9 +8,11 @@
 import json
 import subprocess
 
+
 def checkIP(ip):
     status, output = subprocess.getstatusoutput('ping {0} -c 1 -w 1'.format(ip)) #这里是要判断ip是否存活，然后执行不同操作
     return status
+
 
 def publicKey(ip):
     resultBean = dict()
@@ -27,7 +29,6 @@ def publicKey(ip):
         resultBean['message'] = "The IP:{0} is not alive".format(ip)
         resultBean['data'] = 'error'
         return json.dumps(resultBean)
-
 
 
 def installMinion(ip):

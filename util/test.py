@@ -15,7 +15,7 @@ saltServer = SaltServer()
 # for i in result2.get('data')[0]:
 #     print(i)
 
-result3 = saltServer.runRunner('masterApp.publicKey', ip='192.168.137.10')
+result3 = saltServer.runRunner('check.checkserver')
 print(result3)
 
 
