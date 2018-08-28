@@ -225,7 +225,7 @@ module.exports = (grunt) ->
       test:
         src: ['lib/**/*.js']
         options:
-          outfile: 'spec/index.html'
+          outfile: 'spec/cmdb.html'
           styles: [
             'styles/simditor.css'
           ]
