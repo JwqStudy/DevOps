@@ -1,4 +1,5 @@
 import json
+import os
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
@@ -66,20 +67,24 @@ def init(request):
                 if i in initDict.keys():
                     for ip in iptext.split(','):
                         if ip.strip():
+                            status = os.system('ping {0} -w 1 -n 1'.format(ip.strip()))
                             iplist = IpList.objects.all().values('ipnum')
                             print(ip.strip())
                             print(iplist)
                             print('#' * 50)
                             #判断输入的ip是否存在于数据库中，没有则添加进去
-                            if {'ipnum': ip.strip()} in iplist:
-                                print('the ip:{0} is already existed in db'.format(ip.strip()))
-                                print('*' * 50)
+                            if status == 0:
+                                if {'ipnum': ip.strip()} in iplist:
+                                    print('the ip:{0} is already existed in db'.format(ip.strip()))
+                                    print('*' * 50)
+                                else:
+                                    IpList.objects.create(ipnum=ip.strip())
+                                    print('the ip:{0} is save to db'.format(ip.strip()))
+                                    print('@' * 50)
+                                res = saltServer.runRunner('masterApp.' + initDict.get(i), ip=ip.strip())
+                                resList.append(res)
                             else:
-                                IpList.objects.create(ipnum=ip.strip())
-                                print('the ip:{0} is save to db'.format(ip.strip()))
-                                print('@' * 50)
-                            res = saltServer.runRunner('masterApp.' + initDict.get(i), ip=ip.strip())
-                            resList.append(res)
+                                print('The IP: {0} is not alive!'.format(ip.strip()))
         return JsonResponse(result(200, 'success', resList))
 
 
