@@ -102,6 +102,6 @@ if __name__ == '__main__':
     dic.update(cpu)
     dic.update(mem)
     print(dic)
-    data = urllib.urlencode(dic)
-    req = urllib2.urlopen('http://127.0.0.1:8000/cmdb/collect', data)
+    data = urllib.urlencode(dic)  #dict转换为url形式
+    req = urllib2.urlopen('http://127.0.0.1:8000/cmdb/collect/', data)  #以post形式提交到网页接口上
     print(req.read())
