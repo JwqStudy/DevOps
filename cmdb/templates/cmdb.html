@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <script type="text/javascript" src="{% static '/js/cmdb.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/cmdb.css' %}">
+{% endblock header %}
+
+{% block contentHeader %}
+    <h1>资产管理</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+    <h1>cmdb</h1>
+{% endblock mainContent %}

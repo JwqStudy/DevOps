@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'saltstack',
     'blog',
-    'public'
+    'public',
+    'cmdb',
 ]
 
 MIDDLEWARE = [
