@@ -25,7 +25,7 @@ SECRET_KEY = 'gumu^_m=b8-u*j7!tc66p4i@(5^))i85ms2k*bigufqq7@cp3d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

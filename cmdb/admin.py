@@ -1,5 +1,6 @@
 from django.contrib import admin
-from cmdb.models import Host
+from cmdb.models import Host, HostGroup
+
 
 # Register your models here.
 
@@ -16,4 +17,10 @@ class HostAdmin(admin.ModelAdmin):
         'memory',
     ]
 
-admin.site.register(Host, HostAdmin)
+
+class HostGroupAdmin(admin.ModelAdmin):
+    list_display = ['groupname']   #这里只能写groupname，组成员的数据类型不能显示
+
+
+admin.site.register(Host, HostAdmin)    #添加到admin管理界面上
+admin.site.register(HostGroup, HostGroupAdmin)

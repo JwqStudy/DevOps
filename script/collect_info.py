@@ -101,4 +101,7 @@ if __name__ == '__main__':
     dic.update(osver)
     dic.update(cpu)
     dic.update(mem)
-    print dic
+    print(dic)
+    data = urllib.urlencode(dic)
+    req = urllib2.urlopen('http://127.0.0.1:8000/cmdb/collect', data)
+    print(req.read())
