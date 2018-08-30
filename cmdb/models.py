@@ -17,6 +17,7 @@ class Host(models.Model):
     def __str__(self):   #改写数据定义，为了在HostGroup里面可以显示相关hostname
         return self.hostname
 
+
 class HostGroup(models.Model):
     groupname = models.CharField(max_length=50)
     members = models.ManyToManyField(Host)   #类似外键，指定这个表数据出现的是在Host那里有的
