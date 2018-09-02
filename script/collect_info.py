@@ -2,6 +2,8 @@
 
 import urllib, urllib2
 from subprocess import Popen, PIPE
+import pickle
+import json
 
 def getIfconfig():
     p = Popen(['ifconfig'], stdout=PIPE)
@@ -101,4 +103,9 @@ if __name__ == '__main__':
     dic.update(osver)
     dic.update(cpu)
     dic.update(mem)
-    print dic
+    print(dic)
+    #data = urllib.urlencode(dic)  #dict转换为url形式
+    # data = pickle.dumps(dic)  #以pickle形式把dic序列化到内存中
+    data = json.dumps(dic)  #以json格式来序列化字典，可以跨语言使用，所以较常用
+    req = urllib2.urlopen('http://127.0.0.1:8000/cmdb/collect/', data)  #以post形式提交到网页接口上
+    print(req.read())
