@@ -1,4 +1,3 @@
 .idea
-cmdb/settings.py
-db.sqlite3
-mysite/__pycache__/
+DevOps/settings.py
+DevOps/__pycache__/
