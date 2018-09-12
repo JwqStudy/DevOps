@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block header %}
+    <script type="text/javascript" src="{% static '/js/setting.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/setting.css' %}">
+{% endblock header %}
+
+{% block contentHeader %}
+    <h1>用户中心</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+    <div>
+        <label>
+            <strong>原邮箱</strong>
+            <input placeholder="{{ user.email }}" disabled>
+        </label>
+        <br/><br/>
+        <label>
+            <strong>新邮箱</strong>
+            <input id="newEmail">
+            <button class="btn btn-primary" onclick="submitEmail()">发送</button>
+        </label>
+    </div>
+
+{% endblock mainContent %}

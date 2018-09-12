@@ -1,5 +1,8 @@
 import yagmail as yagmail
+from django.contrib import auth
 from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.shortcuts import render, redirect
 
@@ -65,14 +68,14 @@ def opsIndex(request):
     return render(request, 'index.html')
 
 
-def publicIndex(request):
-    return render(request, 'public.html')
+# def publicIndex(request):
+#     return render(request, 'public.html')
     # return HttpResponseNotFound('<h1>not found</h1>')
 
 
-def setting(request):
+def settingEmail(request):
     if request.method == 'GET':
-        return render(request, 'setting.html')
+        return render(request, 'settingEmail.html')
     elif request.method == 'POST':
         newEmail = request.POST.get("newEmail")
         print(newEmail)
@@ -89,6 +92,28 @@ def setting(request):
         return JsonResponse(resultBean)
     else:
         return HttpResponse("请求方法不符合只接受get和post!")
+
+
+def settingPasswd(request):
+    user = request.user
+    err_msg = ''
+    if request.method == 'POST':
+        oldPasswd = request.POST.get('oldPasswd')
+        newPasswd = request.POST.get('newPasswd')
+        repeatPasswd = request.POST.get('repeatPasswd')
+        # 检查旧密码是否正确
+        if user.check_password(oldPasswd):
+            if not newPasswd:
+                err_msg = '新密码不能为空'
+            elif newPasswd != repeatPasswd:
+                err_msg = '两次密码不一致'
+            else:
+                user.password = auth.hashers.make_password(newPasswd)
+                user.save()
+                return redirect('/login/')
+        else:
+            err_msg = '原密码输入错误'
+    return render(request, 'settingPasswd.html', {'content': err_msg})
 
 
 def checkEmail(request, email):

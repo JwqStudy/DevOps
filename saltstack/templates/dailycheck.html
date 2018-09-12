@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}日常巡检{% endblock %}
+
 {% block header %}
-<script type="text/javascript" src="{% static '/scripts/dailycheck.js' %}"></script>
-<link rel="stylesheet" type="text/css" href="{% static 'css/dailycheck.css' %}">
+    <script type="text/javascript" src="{% static '/scripts/dailycheck.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/dailycheck.css' %}">
 {% endblock header %}
 
+{% block devopsbar %}
+    <li class="treeview active">
+        <a href="#"><i class="glyphicon glyphicon-briefcase"></i> <span>运维工具</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/saltstack/init/"><i class="fa fa-circle-o"></i>系统初始化</a></li>
+            <li><a href="/saltstack/installapp/"><i class="fa fa-circle-o"></i>安装软件</a></li>
+            <li class="active"><a href="/saltstack/dailycheck/"><i class="fa fa-circle-o"></i>日常巡检</a></li>
+            {#            <li><a href="/saltstack/ip/">应用实例</a></li>#}
+        </ul>
+    </li>
+{% endblock %}
 
 {% block contentHeader %}
     <h1>日常巡检</h1>

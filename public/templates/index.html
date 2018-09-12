@@ -6,11 +6,11 @@
 {% endblock header %}
 
 {% block contentHeader %}
-    <h1>Welcome to DevOps</h1>
+    <h1>Hello, {{ user.username }}</h1>
 {% endblock contentHeader %}
 
 {% block mainContent %}
-    <h1>hello</h1><br/>
-    {{ user.username }}<br/>
-    {{ user.password }}
+    <div>
+        <img src="{% static 'AdminLTE-2.4.1/dist/img/photo1.png' %}" hight="700" width="700">
+    </div>
 {% endblock mainContent %}

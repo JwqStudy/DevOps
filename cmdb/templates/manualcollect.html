@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}资产录入{% endblock %}
+
+{% block header %}
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/plugins/datatables/dataTables.bootstrap.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/AdminLTE.min.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/skins/_all-skins.min.css' %}"></script>
+{% endblock header %}
+
+{% block assetsbar %}
+        <li class="treeview active">
+          <a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>资产管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+              <li class="active"><a href="/cmdb/manualcollect/"><i class="fa fa-circle-o"></i>资产录入</a></li>
+              <li><a href="/cmdb/summary/"><i class="fa fa-circle-o"></i>资产总表</a></li>
+          </ul>
+        </li>
+{% endblock %}
+
+{% block contentHeader %}
+    <h1>资产录入</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+    <form class="form-horizontal" method="post">
+        <table class="table table-bordered table-striped">
+
+            <tr>
+                <td width="100">主机名</td>
+                {% if hostname == '' %}
+                    <td><input type="text" name="hostname"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="hostname"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>IP地址</td>
+                {% if ip == '' %}
+                    <td><input type="text" name="ip"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="ip"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>系统版本</td>
+                {% if osver == '' %}
+                    <td><input type="text" name="osver"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="osver"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>供应商</td>
+                {% if vendor == '' %}
+                    <td><input type="text" name="vendor"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="vendor"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>品牌</td>
+                {% if product == '' %}
+                    <td><input type="text" name="product"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="product"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>SN码</td>
+                {% if sn == '' %}
+                    <td><input type="text" name="sn"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="sn"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>CPU型号</td>
+                {% if cpu_model == '' %}
+                    <td><input type="text" name="cpu_model"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="cpu_model"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>CPU数量</td>
+                {% if cpu_num == '' %}
+                    <td><input type="text" name="cpu_num"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="cpu_num"></td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>内存</td>
+                {% if memory == '' %}
+                    <td><input type="text" name="memory"><span class="text-red">&nbsp&nbsp&nbsp不能为空</span></td>
+                {% else %}
+                    <td><input type="text" name="memory"></td>
+                {% endif %}
+            </tr>
+
+        </table>
+        <label>
+            <input class="btn btn-primary btn-block" type="submit">
+        </label>
+    </form>
+{% endblock mainContent %}

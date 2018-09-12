@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+    <script type="text/javascript" src="{% static '/js/setting.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/setting.css' %}">
+{% endblock header %}
+
+{% block contentHeader %}
+    <h1>用户中心</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+
+    <form method="post">
+    <div>
+        <label>
+            <strong>原密码</strong>
+            <input type="password" name="oldPasswd">
+        </label>
+        <br/><br/>
+        <label>
+            <strong>新密码</strong>
+            <input type="password" name="newPasswd">
+        </label>
+        <br/><br/>
+        <label>
+            <strong>确认新密码</strong>
+            <input type="password" name="repeatPasswd">
+        </label>
+        <br/><br/>
+        <button class="btn btn-primary">发送</button>
+        <br/><br/>
+        <span class="text-red text-bold">{{ content }}</span>
+    </div>
+    </form>
+
+{% endblock mainContent %}

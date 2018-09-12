@@ -1,11 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}安装软件{% endblock %}
+
 {% block header %}
     <script type="text/javascript" src="{% static '/scripts/installapp.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/installapp.css' %}">
 {% endblock header %}
 
+{% block devopsbar %}
+    <li class="treeview active">
+        <a href="#"><i class="glyphicon glyphicon-briefcase"></i> <span>运维工具</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/saltstack/init/"><i class="fa fa-circle-o"></i>系统初始化</a></li>
+            <li class="active"><a href="/saltstack/installapp/"><i class="fa fa-circle-o"></i>安装软件</a></li>
+            <li><a href="/saltstack/dailycheck/"><i class="fa fa-circle-o"></i>日常巡检</a></li>
+        </ul>
+    </li>
+{% endblock %}
 
 {% block contentHeader %}
     <h1>安装系统软件</h1>
@@ -14,23 +30,23 @@
 
 {% block mainContent %}
     <p>
-        <h5>选择要安装软件的主机IP</h5>
-        <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
-                data-actions-box="true">
-            {% for i in ip_list %}
-                <option>{{ i.ipnum }}</option>
-            {% endfor %}
-        </select>
+    <h5>选择要安装软件的主机IP</h5>
+    <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+            data-actions-box="true">
+        {% for i in ip_list %}
+            <option>{{ i.ipnum }}</option>
+        {% endfor %}
+    </select>
     </p>
     <p>
-        <h5>选择要安装的软件</h5>
-        <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
-                data-actions-box="true">
-            {% for i in app_list %}
-                <option>{{ i.appname }}</option>
-            {% endfor %}
-        </select>
+    <h5>选择要安装的软件</h5>
+    <select class="selectpicker" multiple data-live-search="true" data-live-search-placeholder="搜索"
+            data-actions-box="true">
+        {% for i in app_list %}
+            <option>{{ i.appname }}</option>
+        {% endfor %}
+    </select>
     </p>
-    <button class="btn btn-primary" >开始安装</button>
+    <button class="btn btn-primary">开始安装</button>
 {% endblock mainContent %}
 

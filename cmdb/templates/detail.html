@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}资产详细{% endblock %}
+
+{% block header %}
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/plugins/datatables/dataTables.bootstrap.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/AdminLTE.min.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/skins/_all-skins.min.css' %}"></script>
+{% endblock header %}
+
+{% block assetsbar %}
+    <li class="treeview active">
+        <a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>资产管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/cmdb/manualcollect/"><i class="fa fa-circle-o"></i>资产录入</a></li>
+            <li><a href="/cmdb/summary/"><i class="fa fa-circle-o"></i>资产总表</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block contentHeader %}
+    <h1>资产详细</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+
+{% endblock mainContent %}

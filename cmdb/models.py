@@ -9,9 +9,9 @@ class Host(models.Model):
     osver = models.CharField(max_length=50)
     vendor = models.CharField(max_length=50)  #厂商
     product = models.CharField(max_length=50) #产品
-    sn = models.CharField(max_length=50)
+    sn = models.CharField(max_length=50, unique=True) #不可重复
     cpu_model = models.CharField(max_length=50)
-    cpu_num = models.IntegerField()
+    cpu_num = models.PositiveSmallIntegerField(default=1)
     memory = models.CharField(max_length=50)
 
     def __str__(self):   #改写数据定义，为了在HostGroup里面可以显示相关hostname

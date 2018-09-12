@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}资产总表{% endblock %}
+
+{% block header %}
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/plugins/datatables/dataTables.bootstrap.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/AdminLTE.min.css' %}"></script>
+    <script type="stylesheet" src="{% static '/AdminLTE-2.4.1/dist/css/skins/_all-skins.min.css' %}"></script>
+{% endblock header %}
+
+{% block assetsbar %}
+    <li class="treeview active">
+        <a href="#"><i class="glyphicon glyphicon-folder-open"></i> <span>资产管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="/cmdb/manualcollect/"><i class="fa fa-circle-o"></i>资产录入</a></li>
+            <li class="active"><a href="/cmdb/summary/"><i class="fa fa-circle-o"></i>资产总表</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+{% block contentHeader %}
+    <h1>资产总表</h1>
+{% endblock contentHeader %}
+
+{% block mainContent %}
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-body">
+                        <table id="assets_table" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>主机名</th>
+                                <th>IP地址</th>
+                                <th>系统版本</th>
+                                <th>供应商</th>
+                                <th>品牌</th>
+                                <th>SN码</th>
+                                <th>CPU型号</th>
+                                <th>CPU数量</th>
+                                <th>内存</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in assets %}
+                                <tr>
+                                    <td class="text-green text-bold">{{ i.hostname }}</td>
+                                    <td class="text-green text-bold">{{ i.ip }}</td>
+                                    <td class="text-green text-bold">{{ i.osver }}</td>
+                                    <td class="text-green text-bold">{{ i.vendor }}</td>
+                                    <td class="text-green text-bold">{{ i.product }}</td>
+                                    <td class="text-green text-bold">{{ i.sn }}</td>
+                                    <td class="text-green text-bold">{{ i.cpu_model }}</td>
+                                    <td class="text-green text-bold">{{ i.cpu_num }}</td>
+                                    <td class="text-green text-bold">{{ i.memory }}</td>
+                                </tr>
+                            {% empty %}
+                                <tr><span class="text-red">没有数据!</span></tr><br/><br/>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </section>
+{% endblock mainContent %}
+
+{% block script %}
+
+{% endblock %}

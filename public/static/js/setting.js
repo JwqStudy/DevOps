@@ -9,7 +9,7 @@ function submitEmail() {
     var data = get_param();
     $.ajax({
         type: "post",
-        url: "http://127.0.0.1:8000/public/setting/",
+        url: "http://192.168.137.1:8000/public/settingEmail/",
         data: data,
         // async: false,
         success: function (callback) {
