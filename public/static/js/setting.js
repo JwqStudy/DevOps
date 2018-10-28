@@ -11,7 +11,7 @@ function submitEmail() {
         type: "post",
         url: "http://192.168.137.1:8000/public/settingEmail/",
         data: data,
-        // async: false,
+        async: false,
         success: function (callback) {
             if (callback.msg == 'success') {
                 // result = callback.data
